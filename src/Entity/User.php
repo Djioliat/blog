@@ -38,6 +38,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 40)]
     private ?string $pseudo = null;
 
+    public function __construct()
+    {
+        $this->created_at = new \DateTimeImmutable();
+    }
     public function getId(): ?int
     {
         return $this->id;
